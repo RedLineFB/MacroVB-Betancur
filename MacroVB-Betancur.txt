@@ -39,7 +39,7 @@ Sub Recorrer()
         End If
     Next Celda
     
-    For Each Celda In RangoFB1
+    For Each Celda In RangoFB2
          Set Columna = Celda.EntireColumn
          Set primeraCelda = Columna.Cells(1)
          
