@@ -1,0 +1,52 @@
+Sub Recorrer()
+    Dim Celda As Object
+    Dim primeraCelda As Range
+    Dim Columna As Range
+    Dim RangoFB As Range
+    Dim RangoFB1 As Range
+    Dim RangoFB2 As Range
+    Dim formatoTex As String
+    
+    
+    Set RangoFB = Range("F1:CZ137")
+    Set RangoFB1 = Range("D1:CZ137")
+    Set RangoFB2 = Range("E1:CZ137")
+    
+       For Each Celda In RangoFB
+           
+               If Celda = "" And Celda.Offset(0, 1) <> "" And Celda.Offset(0, 2) <> "" Then
+                  
+                   Set Columna = Celda.EntireColumn
+                   Set primeraCelda = Columna.Cells(1)
+                   
+                   If IsNumeric(primeraCelda) Then
+                    
+                     Celda.Value = primeraCelda.Value
+                    
+                   End If
+               End If
+          
+        Next Celda
+        
+      For Each Celda In RangoFB1
+         Set Columna = Celda.EntireColumn
+         Set primeraCelda = Columna.Cells(1)
+         
+         If primeraCelda = "IMPORTE" Then
+            formatoTex = Format(Celda.Value, "0000000.00")
+            Celda.NumberFormat = "@"
+            Celda.Value = Replace(formatoTex, ",", "")
+        End If
+    Next Celda
+    
+    For Each Celda In RangoFB1
+         Set Columna = Celda.EntireColumn
+         Set primeraCelda = Columna.Cells(1)
+         
+         If primeraCelda = "Cantidad" Then
+            formatoTex = Format(Celda.Value, "00000.00")
+            Celda.NumberFormat = "@"
+            Celda.Value = Replace(formatoTex, ",", "")
+        End If
+    Next Celda
+End Sub
