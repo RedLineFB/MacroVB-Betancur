@@ -1,2 +1,2 @@
 # MacroVB-Betancur
-Programación de macros en Visual Basic para Excel.
+Trabajo freelance de programador de macros en Visual Basic para Excel
